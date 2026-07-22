@@ -35,14 +35,14 @@ author_profile: true
   white-space: nowrap;
 }
 
-.publication-title {
+.publication-title a {
   color: inherit;
   font-weight: normal;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.publication-title:hover {
+.publication-title a:hover {
   color: #087f5b;
 }
 
@@ -71,14 +71,20 @@ author_profile: true
     {% for post in publications_sorted %}
       {% if post.category == "preprints" or post.category == "preprint" %}
         <li>
+
           <span class="publication-year">
             ({{ post.date | date: "%Y" }})
           </span>
 
           {% if post.paperurl %}
-            {{ post.paperurl }}{{ post.title }}</a>
+            {% capture title_link %}{{ post.paperurl }}{% endcapture %}
+            <span class="publication-title">
+              {{ title_link | markdownify | remove: "<p>" | remove: "</p>" }}
+            </span>
           {% else %}
-            <span class="publication-title">{{ post.title }}</span>
+            <span class="publication-title">
+              {{ post.title }}
+            </span>
           {% endif %}
 
           {% if post.authors %}
@@ -88,10 +94,12 @@ author_profile: true
           {% if post.note %}
             . {{ post.note }}
           {% endif %}.
+
         </li>
       {% endif %}
     {% endfor %}
   </ul>
+
 
   <h2>Published and accepted articles</h2>
 
@@ -99,14 +107,20 @@ author_profile: true
     {% for post in publications_sorted %}
       {% unless post.category == "preprints" or post.category == "preprint" %}
         <li>
+
           <span class="publication-year">
             ({{ post.date | date: "%Y" }})
           </span>
 
           {% if post.paperurl %}
-            {{ post.paperurl }}{{ post.title }}</a>
+            {% capture title_link %}{{ post.paperurl }}{% endcapture %}
+            <span class="publication-title">
+              {{ title_link | markdownify | remove: "<p>" | remove: "</p>" }}
+            </span>
           {% else %}
-            <span class="publication-title">{{ post.title }}</span>
+            <span class="publication-title">
+              {{ post.title }}
+            </span>
           {% endif %}
 
           {% if post.authors %}
@@ -132,9 +146,11 @@ author_profile: true
           {% if post.note %}
             . {{ post.note }}
           {% endif %}.
+
         </li>
       {% endunless %}
     {% endfor %}
   </ul>
 
 </div>
+``
