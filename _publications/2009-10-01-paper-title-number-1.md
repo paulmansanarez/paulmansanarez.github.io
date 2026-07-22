@@ -5,5 +5,5 @@ category: preprints
 date: 2026-07-01
 authors: "P. Mansanarez, G.Poly and Y. Swan"
 paperurl: "https://arxiv.org/abs/2510.14002"
-note: "preprint"
+note: "Preprint"
 ---
