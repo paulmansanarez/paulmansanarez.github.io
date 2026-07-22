@@ -1,36 +1,122 @@
+
 ---
 layout: archive
-title: "Publications"
+title: "Publications and Preprints"
 permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+<style>
+.compact-publications {
+  margin-top: 1.5rem;
+}
 
-{% include base_path %}
+.compact-publications h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #1f4e79;
+  font-size: 1.5rem;
+}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
+.compact-publication {
+  margin: 0 0 0.85rem 0;
+  padding: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.compact-publication .pub-year {
+  color: #2455d6;
+  white-space: nowrap;
+}
+
+.compact-publication .pub-title {
+  font-weight: 600;
+}
+
+.compact-publication .pub-journal {
+  font-weight: 600;
+}
+
+.compact-publication a {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+  .compact-publication {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+}
+</style>
+
+<div class="compact-publications">
+
+  <h2>Preprints</h2>
+
+  {% assign preprints = site.publications
+    | where: "category", "preprints"
+    | sort: "date"
+    | reverse %}
+
+  {% for post in preprints %}
+    <p class="compact-publication">
+      <span class="pub-year">({{ post.date | date: "%Y" }})</span>
+
+      {% if post.paperurl %}
+        {{ post.paperurl }}
+          {{ post.title }}
+        </a>,
+      {% else %}
+        <span class="pub-title">{{ post.title }}</span>,
       {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
+
+      {% if post.authors %}
+        {{ post.authors }}.
+      {% endif %}
+
+      {% if post.note %}
+        {{ post.note }}.
+      {% endif %}
+    </p>
   {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
+
+
+  <h2>Published and accepted articles</h2>
+
+  {% assign articles = site.publications
+    | where: "category", "articles"
+    | sort: "date"
+    | reverse %}
+
+  {% for post in articles %}
+    <p class="compact-publication">
+      <span class="pub-year">({{ post.date | date: "%Y" }})</span>
+
+      {% if post.paperurl %}
+        {{ post.paperurl }}
+          {{ post.title }}
+        </a>,
+      {% else %}
+        <span class="pub-title">{{ post.title }}</span>,
+      {% endif %}
+
+      {% if post.authors %}
+        {{ post.authors }},
+      {% endif %}
+
+      {% if post.venue %}
+        <span class="pub-journal">{{ post.venue }}</span>.
+      {% endif %}
+
+      {% if post.note %}
+        {{ post.note }}.
+      {% endif %}
+    </p>
   {% endfor %}
-{% endif %}
+
+</div>
+
 
 
 
