@@ -357,5 +357,16 @@ tag_archive:
 # - https://jch.penibelst.de/
 compress_html:
   clippings: all
+
   ignore:
     envs: development
+
+  
+#category for publications
+
+publication_category:
+  preprints:
+    title: "Preprints"
+  articles:
+    title: "Published and accepted articles"
+
