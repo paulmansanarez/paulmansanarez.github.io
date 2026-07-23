@@ -62,7 +62,7 @@ author_profile: true
         <li>
           ({{ post.date | date: "%Y" }})
 
-          {{ post.paperurl }}{{ post.title }}</a>{% if post.authors %}, {{ post.authors }}{% endif %}{% if post.note %}. {{ post.note }}{% endif %}.
+          {{ post.title }}</a>{% if post.authors %}, {{ post.authors }}{% endif %}{% if post.note %}. {{ post.note }}{% endif %}.
         </li>
       {% endif %}
     {% endfor %}
@@ -77,7 +77,7 @@ author_profile: true
         <li>
           ({{ post.date | date: "%Y" }})
 
-          {{ post.paperurl }}{{ post.title }}</a>{% if post.authors %}, {{ post.authors }}{% endif %}{% if post.venue %}. <span class="publication-venue">{{ post.venue }}</span>{% endif %}{% if post.volume %}, <span class="publication-volume">{{ post.volume }}</span>{% endif %}{% if post.issue %} ({{ post.issue }}){% endif %}{% if post.pages %}: {{ post.pages }}{% endif %}{% if post.note %}. {{ post.note }}{% endif %}.
+          {{ post.title }}</a>{% if post.authors %}, {{ post.authors }}{% endif %}{% if post.venue %}. <span class="publication-venue">{{ post.venue }}</span>{% endif %}{% if post.volume %}, <span class="publication-volume">{{ post.volume }}</span>{% endif %}{% if post.issue %} ({{ post.issue }}){% endif %}{% if post.pages %}: {{ post.pages }}{% endif %}{% if post.note %}. {{ post.note }}{% endif %}.
         </li>
       {% endif %}
     {% endfor %}
