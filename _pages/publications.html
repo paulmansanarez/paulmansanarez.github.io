@@ -80,13 +80,15 @@ a.publication-title:hover {
             ({{ post.date | date: "%Y" }})
           </span>
 
-          {% if post.paperurl %}
-            {{ post.paperurl }}{{ post.title }}</a>
-          {% else %}
-            <span class="publication-title">{{ post.title }}</span>
-          {% endif %}{% if post.authors %}, {{ post.authors }}{% endif %}{% if post.note %}. {{ post.note }}{% endif %}.
-        </li>
-      {% endif %}
+{% if post.paperurl %}
+  {% capture title_link %}{{ post.paperurl }}{% endcapture %}
+  <span class="publication-title">
+    {{ title_link | markdownify | remove: '<p>' | remove: '</p>' }}
+  </span>
+{% else %}
+  <span class="publication-title">{{ post.title }}</span>
+{% endif %}{% if post.authors %}, {{ post.authors }}{% endif %}{% if post.note %}. {{ post.note }}{% endif %}.
+          
     {% endfor %}
   </ul>
 
