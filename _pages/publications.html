@@ -61,8 +61,13 @@ author_profile: true
       {% if post.category == "preprints" %}
         <li>
           ({{ post.date | date: "%Y" }})
-
-          {{ post.title }}</a>{% if post.authors %}, {{ post.authors }}{% endif %}{% if post.note %}. {{ post.note }}{% endif %}.
+          {% if post.paperurl %}
+            <a href="{{ post.paperurl }}" class="publication-title" style="color: #1f4e79;">{{ post.title }}</a>
+          {% else %}
+            {{ post.title }}
+          {% endif %}
+          {% if post.authors %}, {{ post.authors }}{% endif %}
+          {% if post.note %}. {{ post.note }}{% endif %}.
         </li>
       {% endif %}
     {% endfor %}
