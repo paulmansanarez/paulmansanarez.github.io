@@ -8,5 +8,5 @@ venue: "IEEE Transactions on Information Theory"
 volume: "70"
 issue: "11"
 pages: "7647–7663"
-paperurl: "https://doi.org/10.1109/TIT.2024.3417691"
+paperurl: "https://arxiv.org/abs/2311.04831"
 ---
