@@ -75,8 +75,7 @@ author_profile: true
       {% if post.category != "preprints" %}
         <li>
           ({{ post.date | date: "%Y" }})
-
-          {{ post.title }}</a>{% if post.authors %}, {{ post.authors }}{% endif %}{% if post.venue %}. <span class="publication-venue">{{ post.venue }}</span>{% endif %}{% if post.volume %}, <span class="publication-volume">{{ post.volume }}</span>{% endif %}{% if post.issue %} ({{ post.issue }}){% endif %}{% if post.pages %}: {{ post.pages }}{% endif %}{% if post.note %}. {{ post.note }}{% endif %}.
+          {% if post.paperurl %}<a class="publication-title" href="{{ post.paperurl }}">{{ post.title }}</a>{% else %}{{ post.title }}{% endif %}{% if post.authors %}, {{ post.authors }}{% endif %}{% if post.venue %}. <span class="publication-venue">{{ post.venue }}</span>{% endif %}{% if post.volume %}, <span class="publication-volume">{{ post.volume }}</span>{% endif %}{% if post.issue %} ({{ post.issue }}){% endif %}{% if post.pages %}: {{ post.pages }}{% endif %}{% if post.note %}. {{ post.note }}{% endif %}.
         </li>
       {% endif %}
     {% endfor %}
