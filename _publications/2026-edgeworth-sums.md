@@ -4,6 +4,6 @@ collection: publications
 category: preprints
 date: 2026-11-14
 authors: "P. Mansanarez"
-paperurl: "https://arxiv.org/abs/2611.19528"
+paperurl: "https://hal.science/hal-05864680"
 note: "Preprint"
 ---
